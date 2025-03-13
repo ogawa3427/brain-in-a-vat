@@ -62,15 +62,21 @@ class ImageCaptionInference:
                 probs = F.softmax(logits / 0.7, dim=-1)  # temperature=0.7で確率を調整
                 next_id = torch.multinomial(probs, 1).item()
                 
-                # デバッグ情報
+                # デコードしてトークンの内容を確認
                 token = self.sp.decode_ids([next_id])
                 print(f"Probabilities for next token: max={probs.max().item():.4f}")
                 print(f"Selected token: {token} (ID={next_id})")
                 
+                # 空文字列や半角スペースの場合はスキップ
+                if token.strip() == "":
+                    continue
+                    
                 generated_ids.append(next_id)
                 
                 # EOSが出たら終了（ただし最小長は設定）
-                if next_id == 2 and len(generated_ids) > 7:  # 最小7トークン
+                # 実際のトークン数をカウント（空白・空文字を除く）
+                valid_tokens = [id for id in generated_ids if self.sp.decode_ids([id]).strip() != ""]
+                if next_id == 2 and len(valid_tokens) > 7:  # 最小7トークン
                     break
                 
                 curr_ids = torch.LongTensor([[next_id]]).to(self.device)

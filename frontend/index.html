@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像キャプション生成</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .preview {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        .preview img {
+            max-width: 100%;
+        }
+        .caption {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .loading {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>画像キャプション生成</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <div class="preview">
+        <img id="imagePreview" style="display: none;">
+    </div>
+    <div class="loading" id="loading">
+        生成中...
+    </div>
+    <div class="caption" id="caption"></div>
+    <script src="script.js"></script>
+</body>
+</html>
