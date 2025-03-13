@@ -4,8 +4,10 @@
 
 - ここも見られ https://huggingface.co/Ogawa34/mineVLM
 
-## しくみ
+## 例
+[ワイのTwitter](https://x.com/Ogawa3427/status/1900188332501721225)
 
+## しくみ
 1. データの準備
 - Twitterアーカイブから画像付きツイートを抽出 (`01list.py`)
 - 画像を64x64にリサイズし、URLを除去したテキストとペアにして保存 (`02resize.py`)
