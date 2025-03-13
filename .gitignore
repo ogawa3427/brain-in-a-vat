@@ -1,0 +1,11 @@
+/biav
+/twitter-2023-11-09-5729099829981f915f2ca25761d24dc6be3f3f613d340c650d8da49e41b92774
+media_tweets.json
+/resized_images
+*.vocab
+*.model
+tweets_corpus.txt
+image_text_map.json
+data/train_data.csv
+*.pth
+/__pycache__
