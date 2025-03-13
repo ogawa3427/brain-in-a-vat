@@ -9,3 +9,4 @@ image_text_map.json
 data/train_data.csv
 *.pth
 /__pycache__
+env.py
